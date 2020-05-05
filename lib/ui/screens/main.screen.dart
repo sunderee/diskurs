@@ -153,9 +153,10 @@ class _MainScreenState extends State<MainScreen> {
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
                   print(
-                      'Stream seems to be alright, let\'s build the ListView...');
-                  return _buildQueryList(
-                    snapshot as AsyncSnapshot<ResultModel>,
+                    'Stream seems to be alright, let\'s build the ListView...',
+                  );
+                  return Expanded(
+                    child: _buildQueryList(snapshot),
                   );
                 } else if (snapshot.hasError) {
                   print('Error in a stream!');
@@ -174,14 +175,16 @@ class _MainScreenState extends State<MainScreen> {
     );
   }
 
-  ListView _buildQueryList(AsyncSnapshot<ResultModel> snapshot) {
+  ListView _buildQueryList(AsyncSnapshot<dynamic> snapshot) {
     print('Building the ListView with snapshot ${snapshot.data}');
     return ListView.builder(
-      itemCount: snapshot.data.thesaurusResults.length,
+      scrollDirection: Axis.vertical,
+      shrinkWrap: true,
+      itemCount: snapshot.data.result.thesaurusResults.length,
       itemBuilder: (context, index) => ListTile(
-        title: Text(snapshot.data.thesaurusResults[index].term),
+        title: Text(snapshot.data.result.thesaurusResults[index].term),
         trailing: Text(
-          '${snapshot.data.thesaurusResults[index].probability * 100}%',
+          '${snapshot.data.result.thesaurusResults[index].probability}%',
         ),
       ),
     );

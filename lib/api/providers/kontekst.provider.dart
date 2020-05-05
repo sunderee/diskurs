@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:diskurs/api/constants/language.const.dart';
 import 'package:diskurs/api/exceptions/request.exception.dart';
-import 'package:diskurs/api/exceptions/response.exception.dart';
 import 'package:diskurs/api/models/request.model.dart';
 import 'package:diskurs/api/models/response.model.dart';
 import 'package:diskurs/api/providers/ikontekst.provider.dart';
@@ -35,13 +34,11 @@ class KontekstProvider implements IKontekstProvider {
       final requestModel = RequestModel.from(languageCode, query);
       final response = await _client.post(
         _baseURL,
-        body: requestModel.toJson(),
+        body: jsonEncode(requestModel.toJson()),
       );
-      if (response.statusCode == 200) {
-        print('Response came back as OK!\n${response.body}');
-        return ResponseModel.fromJson(jsonDecode(response.body));
-      }
-      throw ResponseException(response.statusCode, 'Failed for lang=sl query');
+      print('Request: ${requestModel.toJson()}');
+      print('Response:\n${response.body}');
+      return ResponseModel.fromJson(jsonDecode(response.body));
     }
     throw RequestException('Request for lang=sl failed');
   }
@@ -55,13 +52,11 @@ class KontekstProvider implements IKontekstProvider {
       final requestModel = RequestModel.from(languageCode, query);
       final response = await _client.post(
         _baseURL,
-        body: requestModel.toJson(),
+        body: jsonEncode(requestModel.toJson()),
       );
-      if (response.statusCode == 200) {
-        print('Response came back as OK!\n${response.body}');
-        return ResponseModel.fromJson(jsonDecode(response.body));
-      }
-      throw ResponseException(response.statusCode, 'Failed for lang=hr query');
+      print('Request: ${requestModel.toJson()}');
+      print('Response:\n${response.body}');
+      return ResponseModel.fromJson(jsonDecode(response.body));
     }
     throw RequestException('Request for lang=hr failed');
   }
@@ -75,13 +70,11 @@ class KontekstProvider implements IKontekstProvider {
       final requestModel = RequestModel.from(languageCode, query);
       final response = await _client.post(
         _baseURL,
-        body: requestModel.toJson(),
+        body: jsonEncode(requestModel.toJson()),
       );
-      if (response.statusCode == 200) {
-        print('Response came back as OK!\n${response.body}');
-        return ResponseModel.fromJson(jsonDecode(response.body));
-      }
-      throw ResponseException(response.statusCode, 'Failed for lang=sr query');
+      print('Request: ${requestModel.toJson()}');
+      print('Response:\n${response.body}');
+      return ResponseModel.fromJson(jsonDecode(response.body));
     }
     throw RequestException('Request for lang=sr failed');
   }
