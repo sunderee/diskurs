@@ -43,14 +43,36 @@ class KontekstProvider implements IKontekstProvider {
   }
 
   @override
-  Future<ResponseModel> requestCro(String query) {
-    // TODO: implement requestCro
-    throw UnimplementedError();
+  Future<ResponseModel> requestCro(String query) async {
+    const languageCode = LanguageConst.LANGUAGE_CROATIAN;
+    if (_baseURL.isNotEmpty && query.isNotEmpty) {
+      final requestModel = RequestModel.from(languageCode, query);
+      final response = await _client.post(
+        _baseURL,
+        body: requestModel.toJson(),
+      );
+      if (response.statusCode == 200) {
+        return ResponseModel.fromJson(jsonDecode(response.body));
+      }
+      throw ResponseException(response.statusCode, 'Failed for lang=hr query');
+    }
+    throw RequestException('Request for lang=hr failed');
   }
 
   @override
-  Future<ResponseModel> requestSrb(String query) {
-    // TODO: implement requestSrb
-    throw UnimplementedError();
+  Future<ResponseModel> requestSrb(String query) async {
+    const languageCode = LanguageConst.LANGUAGE_SERBIAN;
+    if (_baseURL.isNotEmpty && query.isNotEmpty) {
+      final requestModel = RequestModel.from(languageCode, query);
+      final response = await _client.post(
+        _baseURL,
+        body: requestModel.toJson(),
+      );
+      if (response.statusCode == 200) {
+        return ResponseModel.fromJson(jsonDecode(response.body));
+      }
+      throw ResponseException(response.statusCode, 'Failed for lang=sr query');
+    }
+    throw RequestException('Request for lang=sr failed');
   }
 }
