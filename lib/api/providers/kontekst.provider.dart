@@ -59,6 +59,7 @@ class KontekstProvider implements IKontekstProvider {
       );
       if (response.statusCode == 200) {
         print('Response came back as OK!');
+        print(response.body);
         return ResponseModel.fromJson(jsonDecode(response.body));
       }
       throw ResponseException(response.statusCode, 'Failed for lang=hr query');

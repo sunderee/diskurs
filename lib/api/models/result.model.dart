@@ -20,12 +20,13 @@ class ResultModel {
   }
 
   ResultModel.fromJson(Map<String, dynamic> json) {
+    print('Decoding second layer of the response...');
     _searchedTerm = json['term'];
     _average = json['avg'];
     for (int i = 0; i < json['sims'].length; i++) {
       _thesaurusResults.add(
         ThesaurusModel.fromJson(
-          jsonDecode(json['sims'][i]),
+          json['sims'][i],
         ),
       );
     }

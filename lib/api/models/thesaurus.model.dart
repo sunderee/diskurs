@@ -16,6 +16,7 @@ class ThesaurusModel {
   }
 
   ThesaurusModel.fromJson(Map<String, dynamic> json) {
+    print('Decoding third layer of the response...');
     _term = json['term'];
     _probability = json['prob'];
     _average = json['avg'];

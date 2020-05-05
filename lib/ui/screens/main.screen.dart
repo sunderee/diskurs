@@ -152,15 +152,20 @@ class _MainScreenState extends State<MainScreen> {
               stream: _stream,
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
+                  print(
+                      'Stream seems to be alright, let\'s build the ListView...');
                   return _buildQueryList(
                     snapshot as AsyncSnapshot<ResultModel>,
                   );
                 } else if (snapshot.hasError) {
+                  print('Error in a stream!');
                   return Text(snapshot.error.toString());
+                } else {
+                  print('BLOC stream is still empty...');
+                  return Center(
+                    child: Icon(Icons.more_horiz),
+                  );
                 }
-                return Center(
-                  child: Icon(Icons.more_horiz),
-                );
               },
             ),
           ],
@@ -170,16 +175,15 @@ class _MainScreenState extends State<MainScreen> {
   }
 
   ListView _buildQueryList(AsyncSnapshot<ResultModel> snapshot) {
+    print('Building the ListView with snapshot ${snapshot.data}');
     return ListView.builder(
       itemCount: snapshot.data.thesaurusResults.length,
-      itemBuilder: (context, index) {
-        return ListTile(
-          title: Text(snapshot.data.thesaurusResults[index].term),
-          trailing: Text(
-            '${snapshot.data.thesaurusResults[index].probability * 100}%',
-          ),
-        );
-      },
+      itemBuilder: (context, index) => ListTile(
+        title: Text(snapshot.data.thesaurusResults[index].term),
+        trailing: Text(
+          '${snapshot.data.thesaurusResults[index].probability * 100}%',
+        ),
+      ),
     );
   }
 }
