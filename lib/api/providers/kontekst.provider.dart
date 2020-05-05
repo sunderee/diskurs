@@ -20,21 +20,25 @@ class KontekstProvider implements IKontekstProvider {
   }
 
   KontekstProvider._internal() {
-    loadBaseApiUrl()
-        .then((url) => _baseURL = url)
-        .catchError((error) => print(error));
+    loadBaseApiUrl().then((url) {
+      _baseURL = url;
+      print('Received the API URL');
+    }).catchError((error) => print(error));
   }
 
   @override
   Future<ResponseModel> requestSlo(String query) async {
+    print('Constructing a request for Slovenian language...');
     const languageCode = LanguageConst.LANGUAGE_SLOVENIAN;
     if (_baseURL.isNotEmpty && query.isNotEmpty) {
+      print('Request seems to be alright, let\'s POST it');
       final requestModel = RequestModel.from(languageCode, query);
       final response = await _client.post(
         _baseURL,
         body: requestModel.toJson(),
       );
       if (response.statusCode == 200) {
+        print('Response came back as OK!');
         return ResponseModel.fromJson(jsonDecode(response.body));
       }
       throw ResponseException(response.statusCode, 'Failed for lang=sl query');
@@ -44,14 +48,17 @@ class KontekstProvider implements IKontekstProvider {
 
   @override
   Future<ResponseModel> requestCro(String query) async {
+    print('Constructing a request for Croatian language...');
     const languageCode = LanguageConst.LANGUAGE_CROATIAN;
     if (_baseURL.isNotEmpty && query.isNotEmpty) {
+      print('Request seems to be alright, let\'s POST it');
       final requestModel = RequestModel.from(languageCode, query);
       final response = await _client.post(
         _baseURL,
         body: requestModel.toJson(),
       );
       if (response.statusCode == 200) {
+        print('Response came back as OK!');
         return ResponseModel.fromJson(jsonDecode(response.body));
       }
       throw ResponseException(response.statusCode, 'Failed for lang=hr query');
@@ -61,14 +68,17 @@ class KontekstProvider implements IKontekstProvider {
 
   @override
   Future<ResponseModel> requestSrb(String query) async {
+    print('Constructing a request for Serbian language...');
     const languageCode = LanguageConst.LANGUAGE_SERBIAN;
     if (_baseURL.isNotEmpty && query.isNotEmpty) {
+      print('Request seems to be alright, let\'s POST it');
       final requestModel = RequestModel.from(languageCode, query);
       final response = await _client.post(
         _baseURL,
         body: requestModel.toJson(),
       );
       if (response.statusCode == 200) {
+        print('Response came back as OK!');
         return ResponseModel.fromJson(jsonDecode(response.body));
       }
       throw ResponseException(response.statusCode, 'Failed for lang=sr query');

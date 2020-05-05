@@ -112,13 +112,13 @@ class _MainScreenState extends State<MainScreen> {
                           _query,
                         );
                         break;
-                      case 0:
+                      case 1:
                         bloc.constructQuery(
                           LanguageConst.LANGUAGE_CROATIAN,
                           _query,
                         );
                         break;
-                      case 0:
+                      case 2:
                         bloc.constructQuery(
                           LanguageConst.LANGUAGE_SERBIAN,
                           _query,

@@ -3,27 +3,27 @@ class ThesaurusModel {
   int _probability;
   double _average;
 
-  String get term => this._term;
-  int get probability => this._probability;
-  double get average => this._average;
+  String get term => _term;
+  int get probability => _probability;
+  double get average => _average;
 
   ThesaurusModel();
 
   ThesaurusModel.from(String word, int prob, double avg) {
-    this._term = word;
-    this._probability = prob;
-    this._average = avg;
+    _term = word;
+    _probability = prob;
+    _average = avg;
   }
 
   ThesaurusModel.fromJson(Map<String, dynamic> json) {
-    this._term = json['term'];
-    this._probability = json['prob'];
-    this._average = json['avg'];
+    _term = json['term'];
+    _probability = json['prob'];
+    _average = json['avg'];
   }
 
   Map<String, dynamic> toJson() => {
-        'term': this._term,
-        'prob': this._probability,
-        'avg': this._average,
+        'term': _term,
+        'prob': _probability,
+        'avg': _average,
       };
 }

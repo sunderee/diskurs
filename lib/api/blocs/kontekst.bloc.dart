@@ -1,10 +1,10 @@
 import 'package:diskurs/api/constants/language.const.dart';
 import 'package:diskurs/api/models/response.model.dart';
-import 'package:diskurs/api/repositories/kontekst.repository.dart';
+import 'package:diskurs/api/providers/kontekst.provider.dart';
 import 'package:rxdart/subjects.dart';
 
 class KontekstBloc {
-  final _repo = KontekstRepository();
+  final KontekstProvider _provider = KontekstProvider();
 
   final PublishSubject _publishSubject = PublishSubject<ResponseModel>();
 
@@ -13,13 +13,16 @@ class KontekstBloc {
   Future<void> constructQuery(String language, String queriedTerm) async {
     switch (language) {
       case LanguageConst.LANGUAGE_SLOVENIAN:
-        _publishSubject.sink.add(await _repo.sloQuery(queriedTerm));
+        print('BLOC got request for Slovenian language...');
+        _publishSubject.sink.add(await _provider.requestSlo(queriedTerm));
         break;
       case LanguageConst.LANGUAGE_CROATIAN:
-        _publishSubject.sink.add(await _repo.croQuery(queriedTerm));
+        print('BLOC got request for Croatian language...');
+        _publishSubject.sink.add(await _provider.requestCro(queriedTerm));
         break;
       case LanguageConst.LANGUAGE_SERBIAN:
-        _publishSubject.sink.add(await _repo.srbQuery(queriedTerm));
+        print('BLOC got request for Serbian language...');
+        _publishSubject.sink.add(await _provider.requestSrb(queriedTerm));
         break;
       default:
         break;
@@ -27,6 +30,7 @@ class KontekstBloc {
   }
 
   void dispose() {
+    print('Disposing stream');
     _publishSubject.close();
   }
 }
