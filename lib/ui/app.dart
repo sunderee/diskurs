@@ -15,6 +15,9 @@ class App extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Colors.white,
         accentColor: Colors.lightBlue,
+        appBarTheme: AppBarTheme(
+          elevation: 0.0,
+        ),
       ),
       routes: _buildRoutes(context),
     );
