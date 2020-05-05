@@ -20,7 +20,7 @@ class ResponseModel {
   }
 
   Map<String, dynamic> toJson() => {
-    'status': this._statusCode,
-    'result': this._result.toJson(),
-  }
+        'status': this._statusCode,
+        'result': this._result.toJson(),
+      };
 }
