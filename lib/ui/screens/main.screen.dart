@@ -105,6 +105,7 @@ class _MainScreenState extends State<MainScreen> {
                     color: Colors.grey,
                   ),
                   onTap: () {
+                    FocusScope.of(context).unfocus();
                     switch (_currentLanguageStrings.languageCode) {
                       case 0:
                         bloc.constructQuery(
@@ -184,7 +185,7 @@ class _MainScreenState extends State<MainScreen> {
       itemBuilder: (context, index) => ListTile(
         title: Text(snapshot.data.result.thesaurusResults[index].term),
         trailing: Text(
-          '${snapshot.data.result.thesaurusResults[index].probability}%',
+          '${snapshot.data.result.thesaurusResults[index].probability}',
         ),
       ),
     );
