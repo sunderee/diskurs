@@ -38,7 +38,7 @@ class KontekstProvider implements IKontekstProvider {
         body: requestModel.toJson(),
       );
       if (response.statusCode == 200) {
-        print('Response came back as OK!');
+        print('Response came back as OK!\n${response.body}');
         return ResponseModel.fromJson(jsonDecode(response.body));
       }
       throw ResponseException(response.statusCode, 'Failed for lang=sl query');
@@ -58,8 +58,7 @@ class KontekstProvider implements IKontekstProvider {
         body: requestModel.toJson(),
       );
       if (response.statusCode == 200) {
-        print('Response came back as OK!');
-        print(response.body);
+        print('Response came back as OK!\n${response.body}');
         return ResponseModel.fromJson(jsonDecode(response.body));
       }
       throw ResponseException(response.statusCode, 'Failed for lang=hr query');
@@ -79,7 +78,7 @@ class KontekstProvider implements IKontekstProvider {
         body: requestModel.toJson(),
       );
       if (response.statusCode == 200) {
-        print('Response came back as OK!');
+        print('Response came back as OK!\n${response.body}');
         return ResponseModel.fromJson(jsonDecode(response.body));
       }
       throw ResponseException(response.statusCode, 'Failed for lang=sr query');
