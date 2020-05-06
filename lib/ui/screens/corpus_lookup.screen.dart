@@ -1,4 +1,5 @@
 import 'package:diskurs/api/blocs/kontekst.bloc.dart';
+import 'package:diskurs/api/constants/language.const.dart';
 import 'package:diskurs/ui/screens/constants/corpus_lookup.const.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -15,7 +16,9 @@ class _CorpusLookupScreenState extends State<CorpusLookupScreen> {
   @override
   Widget build(BuildContext context) {
     final CorpusLookupConst args = ModalRoute.of(context).settings.arguments;
+    _initializeCorpusQuery(args);
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text(_setAppBarTitle(args.languageCode)),
       ),
@@ -39,6 +42,31 @@ class _CorpusLookupScreenState extends State<CorpusLookupScreen> {
         },
       ),
     );
+  }
+
+  void _initializeCorpusQuery(CorpusLookupConst lookupConst) {
+    switch (lookupConst.languageCode) {
+      case 0:
+        bloc.constructCorpusQuery(
+          LanguageConst.LANGUAGE_SLOVENIAN,
+          lookupConst.query,
+        );
+        break;
+      case 1:
+        bloc.constructCorpusQuery(
+          LanguageConst.LANGUAGE_CROATIAN,
+          lookupConst.query,
+        );
+        break;
+      case 2:
+        bloc.constructCorpusQuery(
+          LanguageConst.LANGUAGE_SERBIAN,
+          lookupConst.query,
+        );
+        break;
+      default:
+        break;
+    }
   }
 
   String _setAppBarTitle(int languageCode) {
