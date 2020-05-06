@@ -1,3 +1,4 @@
+import 'package:diskurs/ui/screens/corpus_lookup.screen.dart';
 import 'package:diskurs/ui/screens/main.screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -24,6 +25,7 @@ class App extends StatelessWidget {
   }
 
   Map<String, WidgetBuilder> _buildRoutes(BuildContext buildContext) => {
-        "/": (buildContext) => MainScreen(),
+        MainScreen.routeName: (buildContext) => MainScreen(),
+        CorpusLookupScreen.routeName: (buildContext) => CorpusLookupScreen(),
       };
 }
