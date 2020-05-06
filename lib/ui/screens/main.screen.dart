@@ -135,18 +135,40 @@ class _MainScreenState extends State<MainScreen> {
             SizedBox(
               height: 16.0,
             ),
-            Text(
-              _currentLanguageStrings.queryResults,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      _currentLanguageStrings.queryResults,
+                    ),
+                    SizedBox(
+                      height: 8.0,
+                    ),
+                    Text(
+                      _query,
+                      style: TextStyle(
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+                IconButton(
+                  icon: Icon(
+                    Icons.chevron_right,
+                    size: 28.0,
+                    color: Colors.lightBlue,
+                  ),
+                  onPressed: () {},
+                )
+              ],
             ),
             SizedBox(
               height: 8.0,
-            ),
-            Text(
-              _query,
-              style: TextStyle(
-                fontSize: 20.0,
-                fontWeight: FontWeight.bold,
-              ),
             ),
             StreamBuilder(
               stream: _stream,
