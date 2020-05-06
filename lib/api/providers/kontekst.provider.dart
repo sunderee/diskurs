@@ -12,6 +12,7 @@ class KontekstProvider implements IKontekstProvider {
   static final KontekstProvider _instance = KontekstProvider._internal();
 
   String _baseURL = '';
+  String _corpusURL = '';
   Client _client = Client();
 
   factory KontekstProvider() {
@@ -22,6 +23,10 @@ class KontekstProvider implements IKontekstProvider {
     loadBaseApiUrl().then((url) {
       _baseURL = url;
       print('Received the API URL');
+    }).catchError((error) => print(error));
+    loadCorpusApiUrl().then((url) {
+      _corpusURL = url;
+      print('Received the corpus lookup URL');
     }).catchError((error) => print(error));
   }
 
