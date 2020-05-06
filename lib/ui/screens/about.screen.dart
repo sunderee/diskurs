@@ -6,20 +6,20 @@ class AboutScreen extends StatelessWidget {
 
   final List<_ListTileContents> _listTileContents = [
     _ListTileContents(
-      'SL',
-      'Dostop do informacij o aplikacij v slovenščini',
+      'SL | Slovenščina',
+      'Dostop do informacij o aplikaciji, nastavitvah in kontaktnih informacijah v slovenščini',
     ),
     _ListTileContents(
-      'HR',
-      'Pristup podacima o aplikaciji na hrvatskom',
+      'HR | Hrvatski',
+      'Pristupite podacima, postavkama i kontaktnim podacima o aplikaciji na hrvatskom',
     ),
     _ListTileContents(
-      'SR',
-      'Pristupite informacijama o aplikaciji na srpskom',
+      'SR | Srpski',
+      'Pristupite informacijama o aplikaciji, podešavanjima i kontaktnim podacima na srpskom',
     ),
     _ListTileContents(
-      'EN',
-      'Access app info in English',
+      'EN | Engleski',
+      'Access app info, settings and contact information in English',
     ),
   ];
 
