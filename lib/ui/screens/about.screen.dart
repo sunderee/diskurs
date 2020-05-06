@@ -2,6 +2,7 @@ import 'package:diskurs/utils/about_page.util.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class AboutScreen extends StatefulWidget {
   static const String routeName = '/about';
@@ -50,7 +51,12 @@ class _AboutScreenState extends State<AboutScreen> {
                       style: TextStyle(
                         color: Colors.lightBlue,
                       ),
-                      recognizer: TapGestureRecognizer()..onTap = () {},
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () async {
+                          if (await canLaunch(AboutPageUtil.LINKS[0])) {
+                            await launch(AboutPageUtil.LINKS[0]);
+                          }
+                        },
                     ),
                     TextSpan(text: AboutPageUtil.ABOUT_SLOVENIAN[3]),
                     TextSpan(
@@ -58,7 +64,12 @@ class _AboutScreenState extends State<AboutScreen> {
                       style: TextStyle(
                         color: Colors.lightBlue,
                       ),
-                      recognizer: TapGestureRecognizer()..onTap = () {},
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () async {
+                          if (await canLaunch(AboutPageUtil.LINKS[1])) {
+                            await launch(AboutPageUtil.LINKS[1]);
+                          }
+                        },
                     ),
                     TextSpan(
                       text: '\n\n',
@@ -69,7 +80,12 @@ class _AboutScreenState extends State<AboutScreen> {
                       style: TextStyle(
                         color: Colors.lightBlue,
                       ),
-                      recognizer: TapGestureRecognizer()..onTap = () {},
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () async {
+                          if (await canLaunch(AboutPageUtil.EMAILS[0])) {
+                            await launch(AboutPageUtil.EMAILS[0]);
+                          }
+                        },
                     ),
                     TextSpan(text: AboutPageUtil.ABOUT_SLOVENIAN[7]),
                     TextSpan(
@@ -77,7 +93,12 @@ class _AboutScreenState extends State<AboutScreen> {
                       style: TextStyle(
                         color: Colors.lightBlue,
                       ),
-                      recognizer: TapGestureRecognizer()..onTap = () {},
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () async {
+                          if (await canLaunch(AboutPageUtil.EMAILS[1])) {
+                            await launch(AboutPageUtil.EMAILS[1]);
+                          }
+                        },
                     ),
                     TextSpan(text: AboutPageUtil.ABOUT_SLOVENIAN[9]),
                     TextSpan(
@@ -85,7 +106,12 @@ class _AboutScreenState extends State<AboutScreen> {
                       style: TextStyle(
                         color: Colors.lightBlue,
                       ),
-                      recognizer: TapGestureRecognizer()..onTap = () {},
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () async {
+                          if (await canLaunch(AboutPageUtil.LINKS[2])) {
+                            await launch(AboutPageUtil.LINKS[2]);
+                          }
+                        },
                     ),
                     TextSpan(text: AboutPageUtil.ABOUT_SLOVENIAN[11]),
                   ],
@@ -123,7 +149,12 @@ class _AboutScreenState extends State<AboutScreen> {
                       style: TextStyle(
                         color: Colors.lightBlue,
                       ),
-                      recognizer: TapGestureRecognizer()..onTap = () {},
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () async {
+                          if (await canLaunch(AboutPageUtil.LINKS[0])) {
+                            await launch(AboutPageUtil.LINKS[0]);
+                          }
+                        },
                     ),
                     TextSpan(text: AboutPageUtil.ABOUT_CROATIAN[3]),
                     TextSpan(
@@ -131,7 +162,12 @@ class _AboutScreenState extends State<AboutScreen> {
                       style: TextStyle(
                         color: Colors.lightBlue,
                       ),
-                      recognizer: TapGestureRecognizer()..onTap = () {},
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () async {
+                          if (await canLaunch(AboutPageUtil.LINKS[1])) {
+                            await launch(AboutPageUtil.LINKS[1]);
+                          }
+                        },
                     ),
                     TextSpan(
                       text: '\n\n',
@@ -142,7 +178,12 @@ class _AboutScreenState extends State<AboutScreen> {
                       style: TextStyle(
                         color: Colors.lightBlue,
                       ),
-                      recognizer: TapGestureRecognizer()..onTap = () {},
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () async {
+                          if (await canLaunch(AboutPageUtil.EMAILS[0])) {
+                            await launch(AboutPageUtil.EMAILS[0]);
+                          }
+                        },
                     ),
                     TextSpan(text: AboutPageUtil.ABOUT_CROATIAN[7]),
                     TextSpan(
@@ -150,7 +191,12 @@ class _AboutScreenState extends State<AboutScreen> {
                       style: TextStyle(
                         color: Colors.lightBlue,
                       ),
-                      recognizer: TapGestureRecognizer()..onTap = () {},
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () async {
+                          if (await canLaunch(AboutPageUtil.EMAILS[1])) {
+                            await launch(AboutPageUtil.EMAILS[1]);
+                          }
+                        },
                     ),
                     TextSpan(text: AboutPageUtil.ABOUT_CROATIAN[9]),
                     TextSpan(
@@ -158,7 +204,12 @@ class _AboutScreenState extends State<AboutScreen> {
                       style: TextStyle(
                         color: Colors.lightBlue,
                       ),
-                      recognizer: TapGestureRecognizer()..onTap = () {},
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () async {
+                          if (await canLaunch(AboutPageUtil.LINKS[2])) {
+                            await launch(AboutPageUtil.LINKS[2]);
+                          }
+                        },
                     ),
                     TextSpan(text: AboutPageUtil.ABOUT_CROATIAN[11]),
                   ],
@@ -196,7 +247,12 @@ class _AboutScreenState extends State<AboutScreen> {
                       style: TextStyle(
                         color: Colors.lightBlue,
                       ),
-                      recognizer: TapGestureRecognizer()..onTap = () {},
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () async {
+                          if (await canLaunch(AboutPageUtil.LINKS[0])) {
+                            await launch(AboutPageUtil.LINKS[0]);
+                          }
+                        },
                     ),
                     TextSpan(text: AboutPageUtil.ABOUT_SERBIAN[3]),
                     TextSpan(
@@ -204,7 +260,12 @@ class _AboutScreenState extends State<AboutScreen> {
                       style: TextStyle(
                         color: Colors.lightBlue,
                       ),
-                      recognizer: TapGestureRecognizer()..onTap = () {},
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () async {
+                          if (await canLaunch(AboutPageUtil.LINKS[1])) {
+                            await launch(AboutPageUtil.LINKS[1]);
+                          }
+                        },
                     ),
                     TextSpan(
                       text: '\n\n',
@@ -215,7 +276,12 @@ class _AboutScreenState extends State<AboutScreen> {
                       style: TextStyle(
                         color: Colors.lightBlue,
                       ),
-                      recognizer: TapGestureRecognizer()..onTap = () {},
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () async {
+                          if (await canLaunch(AboutPageUtil.EMAILS[0])) {
+                            await launch(AboutPageUtil.EMAILS[0]);
+                          }
+                        },
                     ),
                     TextSpan(text: AboutPageUtil.ABOUT_SERBIAN[7]),
                     TextSpan(
@@ -223,7 +289,12 @@ class _AboutScreenState extends State<AboutScreen> {
                       style: TextStyle(
                         color: Colors.lightBlue,
                       ),
-                      recognizer: TapGestureRecognizer()..onTap = () {},
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () async {
+                          if (await canLaunch(AboutPageUtil.EMAILS[1])) {
+                            await launch(AboutPageUtil.EMAILS[1]);
+                          }
+                        },
                     ),
                     TextSpan(text: AboutPageUtil.ABOUT_SERBIAN[9]),
                     TextSpan(
@@ -231,7 +302,12 @@ class _AboutScreenState extends State<AboutScreen> {
                       style: TextStyle(
                         color: Colors.lightBlue,
                       ),
-                      recognizer: TapGestureRecognizer()..onTap = () {},
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () async {
+                          if (await canLaunch(AboutPageUtil.LINKS[2])) {
+                            await launch(AboutPageUtil.LINKS[2]);
+                          }
+                        },
                     ),
                     TextSpan(text: AboutPageUtil.ABOUT_SERBIAN[11]),
                   ],
@@ -269,7 +345,12 @@ class _AboutScreenState extends State<AboutScreen> {
                       style: TextStyle(
                         color: Colors.lightBlue,
                       ),
-                      recognizer: TapGestureRecognizer()..onTap = () {},
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () async {
+                          if (await canLaunch(AboutPageUtil.LINKS[0])) {
+                            await launch(AboutPageUtil.LINKS[0]);
+                          }
+                        },
                     ),
                     TextSpan(text: AboutPageUtil.ABOUT_ENGLISH[3]),
                     TextSpan(
@@ -277,7 +358,12 @@ class _AboutScreenState extends State<AboutScreen> {
                       style: TextStyle(
                         color: Colors.lightBlue,
                       ),
-                      recognizer: TapGestureRecognizer()..onTap = () {},
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () async {
+                          if (await canLaunch(AboutPageUtil.LINKS[1])) {
+                            await launch(AboutPageUtil.LINKS[1]);
+                          }
+                        },
                     ),
                     TextSpan(
                       text: '\n\n',
@@ -288,7 +374,12 @@ class _AboutScreenState extends State<AboutScreen> {
                       style: TextStyle(
                         color: Colors.lightBlue,
                       ),
-                      recognizer: TapGestureRecognizer()..onTap = () {},
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () async {
+                          if (await canLaunch(AboutPageUtil.EMAILS[0])) {
+                            await launch(AboutPageUtil.EMAILS[0]);
+                          }
+                        },
                     ),
                     TextSpan(text: AboutPageUtil.ABOUT_ENGLISH[7]),
                     TextSpan(
@@ -296,7 +387,12 @@ class _AboutScreenState extends State<AboutScreen> {
                       style: TextStyle(
                         color: Colors.lightBlue,
                       ),
-                      recognizer: TapGestureRecognizer()..onTap = () {},
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () async {
+                          if (await canLaunch(AboutPageUtil.EMAILS[1])) {
+                            await launch(AboutPageUtil.EMAILS[1]);
+                          }
+                        },
                     ),
                     TextSpan(text: AboutPageUtil.ABOUT_ENGLISH[9]),
                     TextSpan(
@@ -304,7 +400,12 @@ class _AboutScreenState extends State<AboutScreen> {
                       style: TextStyle(
                         color: Colors.lightBlue,
                       ),
-                      recognizer: TapGestureRecognizer()..onTap = () {},
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () async {
+                          if (await canLaunch(AboutPageUtil.LINKS[2])) {
+                            await launch(AboutPageUtil.LINKS[2]);
+                          }
+                        },
                     ),
                     TextSpan(text: AboutPageUtil.ABOUT_ENGLISH[11]),
                   ],
