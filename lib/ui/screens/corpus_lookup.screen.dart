@@ -1,3 +1,4 @@
+import 'package:diskurs/api/blocs/kontekst.bloc.dart';
 import 'package:diskurs/ui/screens/constants/corpus_lookup.const.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -9,12 +10,33 @@ class CorpusLookupScreen extends StatefulWidget {
 }
 
 class _CorpusLookupScreenState extends State<CorpusLookupScreen> {
+  Stream _stream = bloc.corpusResponseModelStream;
+
   @override
   Widget build(BuildContext context) {
     final CorpusLookupConst args = ModalRoute.of(context).settings.arguments;
     return Scaffold(
       appBar: AppBar(
         title: Text(_setAppBarTitle(args.languageCode)),
+      ),
+      body: StreamBuilder(
+        stream: _stream,
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            print(
+              'Stream seems to be alright, let\'s build the ListView...',
+            );
+            return _buildCorpusQueryList(snapshot);
+          } else if (snapshot.hasError) {
+            print('Error in a stream!');
+            return Text(snapshot.error.toString());
+          } else {
+            print('BLOC stream is still empty...');
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+        },
       ),
     );
   }
@@ -30,6 +52,20 @@ class _CorpusLookupScreenState extends State<CorpusLookupScreen> {
       default:
         return _ToolbarTitleString.LANGUAGE_SLOVENIAN;
     }
+  }
+
+  ListView _buildCorpusQueryList(AsyncSnapshot<dynamic> snapshot) {
+    print('Building the ListView with snapshot ${snapshot.data}');
+    return ListView.builder(
+      itemCount: snapshot.data.corpusLookupResults.length,
+      itemBuilder: (context, index) => ListTile(
+        leading: Icon(
+          Icons.format_quote,
+          color: Colors.lightBlue,
+        ),
+        title: Text(snapshot.data.corpusLookupResults[index]),
+      ),
+    );
   }
 }
 
