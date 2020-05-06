@@ -1,8 +1,9 @@
+import 'package:diskurs/ui/screens/more_info.screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class InfoScreen extends StatelessWidget {
-  static const String routeName = '/about';
+  static const String routeName = '/info';
 
   final List<_ListTileContents> _listTileContents = [
     _ListTileContents(
@@ -34,6 +35,13 @@ class InfoScreen extends StatelessWidget {
         itemBuilder: (context, index) => ListTile(
           title: Text(_listTileContents[index].languageCode),
           subtitle: Text(_listTileContents[index].description),
+          onTap: () {
+            Navigator.pushNamed(
+              context,
+              MoreInfoScreen.routeName,
+              arguments: index,
+            );
+          },
         ),
         separatorBuilder: (context, index) => Divider(),
         itemCount: 4,
