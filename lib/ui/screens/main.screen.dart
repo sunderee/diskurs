@@ -1,10 +1,13 @@
 import 'package:diskurs/api/blocs/kontekst.bloc.dart';
 import 'package:diskurs/api/constants/language.const.dart';
+import 'package:diskurs/ui/screens/constants/corpus_lookup.const.dart';
+import 'package:diskurs/ui/screens/corpus_lookup.screen.dart';
 import 'package:diskurs/utils/app_strings.util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class MainScreen extends StatefulWidget {
+  static const String routeName = '/';
   @override
   State<StatefulWidget> createState() => _MainScreenState();
 }
@@ -163,7 +166,16 @@ class _MainScreenState extends State<MainScreen> {
                     size: 28.0,
                     color: Colors.lightBlue,
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(
+                      context,
+                      CorpusLookupScreen.routeName,
+                      arguments: CorpusLookupConst(
+                        _currentLanguageStrings.languageCode,
+                        _query,
+                      ),
+                    );
+                  },
                 )
               ],
             ),
