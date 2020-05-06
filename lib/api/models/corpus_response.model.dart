@@ -14,7 +14,12 @@ class CorpusResponseModel {
 
   CorpusResponseModel.fromJson(Map<String, dynamic> json) {
     for (int i = 0; i < json['result'].length; i++) {
-      _corpusLookupResults.add(json['result'][i]);
+      _corpusLookupResults.add(
+        (json['result'][i] as String).replaceAll(
+          new RegExp('<[^>]*>'),
+          '',
+        ),
+      );
     }
     _statusCode = json['status'];
   }
