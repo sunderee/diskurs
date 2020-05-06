@@ -1,15 +1,15 @@
 class ThesaurusModel {
   String _term;
-  double _probability;
+  int _probability;
   double _average;
 
   String get term => _term;
-  double get probability => _probability;
+  int get probability => _probability;
   double get average => _average;
 
   ThesaurusModel();
 
-  ThesaurusModel.from(String word, double prob, double avg) {
+  ThesaurusModel.from(String word, int prob, double avg) {
     _term = word;
     _probability = prob;
     _average = avg;
@@ -18,7 +18,9 @@ class ThesaurusModel {
   ThesaurusModel.fromJson(Map<String, dynamic> json) {
     print('Decoding third layer of the response...');
     _term = json['term'];
-    _probability = json['freq'];
+    _probability = json['freq'] != null
+        ? ((json['freq'] as double) * 100).toInt()
+        : json['prob'];
     _average = json['avg'];
   }
 

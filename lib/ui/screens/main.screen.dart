@@ -1,6 +1,5 @@
 import 'package:diskurs/api/blocs/kontekst.bloc.dart';
 import 'package:diskurs/api/constants/language.const.dart';
-import 'package:diskurs/api/models/result.model.dart';
 import 'package:diskurs/utils/app_strings.util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
