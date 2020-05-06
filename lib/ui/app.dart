@@ -1,5 +1,5 @@
-import 'package:diskurs/ui/screens/about.screen.dart';
 import 'package:diskurs/ui/screens/corpus_lookup.screen.dart';
+import 'package:diskurs/ui/screens/info.screen.dart';
 import 'package:diskurs/ui/screens/main.screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -28,6 +28,6 @@ class App extends StatelessWidget {
   Map<String, WidgetBuilder> _buildRoutes(BuildContext buildContext) => {
         MainScreen.routeName: (buildContext) => MainScreen(),
         CorpusLookupScreen.routeName: (buildContext) => CorpusLookupScreen(),
-        AboutScreen.routeName: (buildContext) => AboutScreen(),
+        InfoScreen.routeName: (buildContext) => InfoScreen(),
       };
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class AboutScreen extends StatelessWidget {
+class InfoScreen extends StatelessWidget {
   static const String routeName = '/about';
 
   final List<_ListTileContents> _listTileContents = [
