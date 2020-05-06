@@ -1,5 +1,6 @@
 import 'package:diskurs/api/blocs/kontekst.bloc.dart';
 import 'package:diskurs/api/constants/language.const.dart';
+import 'package:diskurs/ui/screens/about.screen.dart';
 import 'package:diskurs/ui/screens/constants/corpus_lookup.const.dart';
 import 'package:diskurs/ui/screens/corpus_lookup.screen.dart';
 import 'package:diskurs/utils/app_strings.util.dart';
@@ -90,6 +91,15 @@ class _MainScreenState extends State<MainScreen> {
                 ),
               ),
             ],
+          ),
+          IconButton(
+            icon: Icon(
+              Icons.more_vert,
+              color: Colors.grey[600],
+            ),
+            onPressed: () {
+              Navigator.pushNamed(context, AboutScreen.routeName);
+            },
           ),
         ],
       ),
