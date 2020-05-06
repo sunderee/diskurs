@@ -1,3 +1,4 @@
+import 'package:diskurs/ui/screens/about.screen.dart';
 import 'package:diskurs/ui/screens/corpus_lookup.screen.dart';
 import 'package:diskurs/ui/screens/info.screen.dart';
 import 'package:diskurs/ui/screens/main.screen.dart';
@@ -31,5 +32,6 @@ class App extends StatelessWidget {
         CorpusLookupScreen.routeName: (buildContext) => CorpusLookupScreen(),
         InfoScreen.routeName: (buildContext) => InfoScreen(),
         MoreInfoScreen.routeName: (buildContext) => MoreInfoScreen(),
+        AboutScreen.routeName: (buildContext) => AboutScreen(),
       };
 }

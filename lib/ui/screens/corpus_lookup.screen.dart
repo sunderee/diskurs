@@ -1,6 +1,6 @@
 import 'package:diskurs/api/blocs/kontekst.bloc.dart';
 import 'package:diskurs/api/constants/language.const.dart';
-import 'package:diskurs/ui/screens/constants/corpus_lookup.const.dart';
+import 'package:diskurs/utils/constants/corpus_lookup.const.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 

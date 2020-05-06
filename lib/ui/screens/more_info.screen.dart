@@ -1,4 +1,5 @@
-import 'package:diskurs/ui/screens/constants/more_info.const.dart';
+import 'package:diskurs/ui/screens/about.screen.dart';
+import 'package:diskurs/utils/constants/more_info.const.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -35,6 +36,13 @@ class MoreInfoScreen extends StatelessWidget {
         itemBuilder: (context, index) => ListTile(
           title: Text(_moreInfoList[index].title),
           subtitle: Text(_moreInfoList[index].description),
+          onTap: () {
+            Navigator.pushNamed(
+              context,
+              AboutScreen.routeName,
+              arguments: langPref,
+            );
+          },
         ),
         separatorBuilder: (context, index) => Divider(),
         itemCount: 3,

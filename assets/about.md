@@ -2,30 +2,18 @@
 
 Diskurs is a cross-platform mobile thesaurus application with the capability of querying corpora for samples of word usages. It supports the three major Balkan languages: Slovenian, Croatian, and Serbian.
 
-The application is based on the APIs provided by kontekst.io. You can read more about their work by following this link.
+The application is developed with the help of APIs powering kontekst.io.
 
-Diskurs was developed by Peter Aleksander Bizjak. Special thanks go to Matej Aleksov for providing application design and logos and Marko Plahuta from Virostatiq for providing APIs used by kontekst.io and Diskurs.
+Kontekst.io is a search engine for related words and phrases, which are automatically generated from several text corpora of modern Slovenian, and later translated to Croatian and Serbian.
 
-### Slovenian
+The Slovenian search engine is based on a word2vec model that assigns each word/phrase a position in the latent space so that words used in similar contexts are also close in the latent space.
 
-Diskurs je cross-platform mobilna aplikacija za iskanje sinonimov, s katero lahko tudi poizvedujete jezikovne korpuse za primere uporabe same besede. Podpira tri glavne balkanske jezike: slovenski, hrvaški in srbski.
+The base model used by kontekst.io contains about 600,000 words and phrases.
 
-Aplikacija temelji na API-jih, ki jih ponuja kontekst.io. Več o njihovem delu si lahko preberete na tej povezavi.
+Diskurs takes the idea set by kontekst.io and embodies it in the form of a cross-platform mobile application. It relies on APIs provided by kontekst.io.
 
-Diskurs je razvil Peter Aleksander Bizjak. Posebna zahvala gre Mateju Aleksovu za dizajn aplikacije in logotipov ter Marku Plahuti iz podjetja Virostatiq za zagotavljanje API-jev, ki jih uporabljata kontekst.io in Diskurs.
+In the Balkan region, we lack a thesaurus application. Although countries, respectively, have made some solid progress in the direction of the digitalization of dictionaries, we are yet to see a thesaurus as powerful as counterparts from major languages such as English. If we intend to change that, a joint effort is required.
 
-### Croatian
+Through doing so, we are looking at possibly the first united thesaurus for the three major languages in the Balkan area: Slovenian, Croatian and Serbian. Coupled with examples of word usages, the application provides a ubiquitous medium for students and experts alike who are looking at related phrases either to enrich their writing or to deduce the meaning of a word through checking the similar phrases.
 
-Diskurs je aplikacija za tezaurus na više platformi s mogućnošću upita korpusa za primjere upotrebe riječi. Podržava tri glavna balkanska jezika: slovenski, hrvatski i srpski.
-
-Aplikacija se temelji na API-jevima koje pruža kontekst.io. Više o njihovom radu možete pročitati slijedeću vezu.
-
-Diskurs je razvio Peter Aleksander Bizjak. Posebna zahvala ide Mateju Aleksovu za dizajn aplikacije i logotipa te Marku Plahuti iz Virostatiq-a za pružanje API-ja koje koriste kontekst.io i Diskurs.
-
-### Serbian
-
-Diskurs je mobilna tezaurus aplikacija dostupna na više platformi sa mogućnošću upita korpusa za primere upotrebe reči. Podržava tri glavna balkanska jezika: slovenački, hrvatski i srpski.
-
-Aplikacija je zasnovana na API-ima koje pruža kontekst.io. Više o njihovom radu možete pročitati sledećim linkom.
-
-Diskurs je razvio Peter Aleksander Bizjak. Posebna zahvala ide Mateju Aleksovu za dizajn aplikacije i logotipa i Marku Plahuti iz Virostatiq-a za pružanje API-ja koje koriste kontekst.io i Diskurs.
+Application was developed by Peter Aleksander Bizjak. Special thanks go to Matej Aleksov for providing design and logos as well as Marko Plahuta from Virostatiq, company behind kontekst.io, for providing access to APIs.
