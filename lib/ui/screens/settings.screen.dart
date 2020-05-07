@@ -27,7 +27,42 @@ class SettingsScreen extends StatelessWidget {
         throw ArgumentError('The language preference was invalid');
     }
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text(_settings.toolbarTitle),
+      ),
+      body: SafeArea(
+        minimum: const EdgeInsets.all(
+          16.0,
+        ),
+        child: _buildSettingsPage(),
+      ),
+    );
+  }
+
+  Column _buildSettingsPage() {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        SwitchListTile(
+          value: false,
+          onChanged: (bool) {},
+          title: Text(_settings.lightDarkTheme.first),
+          subtitle: Text(_settings.lightDarkTheme.second),
+        ),
+        Divider(),
+        ListTile(
+          title: Text(_settings.bugReport.first),
+          subtitle: Text(_settings.bugReport.second),
+          onTap: () {},
+        ),
+        Divider(),
+        ListTile(
+          title: Text(_settings.feedback.first),
+          subtitle: Text(_settings.feedback.second),
+          onTap: () {},
+        ),
+      ],
     );
   }
 }
