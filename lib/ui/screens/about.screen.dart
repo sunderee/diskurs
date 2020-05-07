@@ -52,6 +52,7 @@ class AboutScreen extends StatelessWidget {
     textColumns.add(SizedBox(height: 32.0));
     textColumns.add(
       ListTile(
+        leading: Icon(Icons.code),
         title: Text('Peter Aleksander Bizjak'),
         subtitle: RichText(
           text: TextSpan(
@@ -83,6 +84,7 @@ class AboutScreen extends StatelessWidget {
     textColumns.add(SizedBox(height: 16.0));
     textColumns.add(
       ListTile(
+        leading: Icon(Icons.palette),
         title: Text('Matej Aleksov'),
         subtitle: RichText(
           text: TextSpan(
@@ -113,6 +115,7 @@ class AboutScreen extends StatelessWidget {
     textColumns.add(SizedBox(height: 16.0));
     textColumns.add(
       ListTile(
+        leading: Icon(Icons.developer_board),
         title: Text('Marko Plahuta'),
         subtitle: RichText(
           text: TextSpan(
@@ -138,6 +141,39 @@ class AboutScreen extends StatelessWidget {
             ],
           ),
         ),
+      ),
+    );
+    textColumns.add(
+      ListTile(
+        leading: Icon(Icons.text_fields),
+        title: Text('LICENSE'),
+        subtitle: Text('Licensed under MIT license'),
+        onTap: () async {
+          const String licenseURL =
+              'https://gitlab.com/diskurs1/diskurs-app/-/raw/master/LICENSE.md';
+          if (await canLaunch(licenseURL)) {
+            await launch(licenseURL);
+          }
+        },
+      ),
+    );
+    textColumns.add(
+      ListTile(
+        leading: Icon(Icons.list),
+        title: Text('Open-source'),
+        subtitle: Text('List of open source tools and libraries'),
+        onTap: () async {
+          const String pubspecyamlUrl =
+              'https://gitlab.com/diskurs1/diskurs-app/-/raw/master/pubspec.yaml';
+          if (await canLaunch(pubspecyamlUrl)) {
+            await launch(pubspecyamlUrl);
+          }
+        },
+      ),
+    );
+    textColumns.add(
+      SizedBox(
+        height: 16.0,
       ),
     );
     return textColumns;
