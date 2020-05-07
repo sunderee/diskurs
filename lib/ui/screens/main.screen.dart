@@ -4,8 +4,11 @@ import 'package:diskurs/ui/screens/corpus_lookup.screen.dart';
 import 'package:diskurs/ui/screens/info.screen.dart';
 import 'package:diskurs/utils/constants/app_strings.const.dart';
 import 'package:diskurs/utils/constants/corpus_lookup.const.dart';
+import 'package:diskurs/utils/constants/preferences.const.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class MainScreen extends StatefulWidget {
   static const String routeName = '/';
@@ -18,8 +21,17 @@ class _MainScreenState extends State<MainScreen> {
   String _query = '';
   Stream _stream = bloc.responseModelStream;
 
+  bool _isDarkThemeSelected = false;
+
   @override
   Widget build(BuildContext context) {
+    if (!_isDarkThemeSelected) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarColor: Colors.white,
+        ),
+      );
+    }
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -231,5 +243,11 @@ class _MainScreenState extends State<MainScreen> {
         ),
       ),
     );
+  }
+
+  Future<void> _readSharedPreferencesFile() async {
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    bool themePref = sharedPreferences.getBool(THEME_DATA_PREFERENCE) ?? false;
+    setState(() => _isDarkThemeSelected = themePref);
   }
 }
