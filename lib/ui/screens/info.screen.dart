@@ -30,20 +30,25 @@ class InfoScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text('Info'),
       ),
-      body: ListView.separated(
-        itemBuilder: (context, index) => ListTile(
-          title: Text(_listTileContents[index].languageCode),
-          subtitle: Text(_listTileContents[index].description),
-          onTap: () {
-            Navigator.pushNamed(
-              context,
-              MoreInfoScreen.routeName,
-              arguments: index,
-            );
-          },
+      body: SafeArea(
+        minimum: const EdgeInsets.all(
+          16.0,
         ),
-        separatorBuilder: (context, index) => Divider(),
-        itemCount: 4,
+        child: ListView.separated(
+          itemBuilder: (context, index) => ListTile(
+            title: Text(_listTileContents[index].languageCode),
+            subtitle: Text(_listTileContents[index].description),
+            onTap: () {
+              Navigator.pushNamed(
+                context,
+                MoreInfoScreen.routeName,
+                arguments: index,
+              );
+            },
+          ),
+          separatorBuilder: (context, index) => Divider(),
+          itemCount: 4,
+        ),
       ),
     );
   }

@@ -33,39 +33,44 @@ class MoreInfoScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text('More info'),
       ),
-      body: ListView.separated(
-        itemBuilder: (context, index) => ListTile(
-          title: Text(_moreInfoList[index].title),
-          subtitle: Text(_moreInfoList[index].description),
-          onTap: () async {
-            switch (index) {
-              case 0:
-                Navigator.pushNamed(
-                  context,
-                  AboutScreen.routeName,
-                  arguments: langPref,
-                );
-                break;
-              case 1:
-                Navigator.pushNamed(
-                  context,
-                  SettingsScreen.routeName,
-                  arguments: langPref,
-                );
-                break;
-              case 2:
-                const String url = 'https://gitlab.com/diskurs1/diskurs-app';
-                if (await canLaunch(url)) {
-                  await launch(url);
-                }
-                break;
-              default:
-                break;
-            }
-          },
+      body: SafeArea(
+        minimum: const EdgeInsets.all(
+          16.0,
         ),
-        separatorBuilder: (context, index) => Divider(),
-        itemCount: 3,
+        child: ListView.separated(
+          itemBuilder: (context, index) => ListTile(
+            title: Text(_moreInfoList[index].title),
+            subtitle: Text(_moreInfoList[index].description),
+            onTap: () async {
+              switch (index) {
+                case 0:
+                  Navigator.pushNamed(
+                    context,
+                    AboutScreen.routeName,
+                    arguments: langPref,
+                  );
+                  break;
+                case 1:
+                  Navigator.pushNamed(
+                    context,
+                    SettingsScreen.routeName,
+                    arguments: langPref,
+                  );
+                  break;
+                case 2:
+                  const String url = 'https://gitlab.com/diskurs1/diskurs-app';
+                  if (await canLaunch(url)) {
+                    await launch(url);
+                  }
+                  break;
+                default:
+                  break;
+              }
+            },
+          ),
+          separatorBuilder: (context, index) => Divider(),
+          itemCount: 3,
+        ),
       ),
     );
   }

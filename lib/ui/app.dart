@@ -24,9 +24,6 @@ class App extends StatelessWidget {
 class _InternalApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(
-      SystemUiOverlayStyle(statusBarColor: Colors.white),
-    );
     final ThemeChangerBloc theme = Provider.of<ThemeChangerBloc>(context);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
