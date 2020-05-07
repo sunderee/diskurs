@@ -1,4 +1,5 @@
 import 'package:diskurs/ui/screens/about.screen.dart';
+import 'package:diskurs/ui/screens/settings.screen.dart';
 import 'package:diskurs/utils/constants/more_info.const.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -47,6 +48,11 @@ class MoreInfoScreen extends StatelessWidget {
                 );
                 break;
               case 1:
+                Navigator.pushNamed(
+                  context,
+                  SettingsScreen.routeName,
+                  arguments: langPref,
+                );
                 break;
               case 2:
                 const String url = 'https://gitlab.com/diskurs1/diskurs-app';
