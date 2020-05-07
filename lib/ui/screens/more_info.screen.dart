@@ -30,7 +30,6 @@ class MoreInfoScreen extends StatelessWidget {
         throw ArgumentError('The language preference was invalid');
     }
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text('More info'),
       ),

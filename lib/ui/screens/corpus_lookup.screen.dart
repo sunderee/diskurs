@@ -18,7 +18,6 @@ class _CorpusLookupScreenState extends State<CorpusLookupScreen> {
     final CorpusLookupConst args = ModalRoute.of(context).settings.arguments;
     _initializeCorpusQuery(args);
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text(_setAppBarTitle(args.languageCode)),
       ),

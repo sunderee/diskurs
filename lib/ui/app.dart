@@ -1,3 +1,4 @@
+import 'package:diskurs/api/blocs/theme_changer.block.dart';
 import 'package:diskurs/ui/screens/about.screen.dart';
 import 'package:diskurs/ui/screens/corpus_lookup.screen.dart';
 import 'package:diskurs/ui/screens/info.screen.dart';
@@ -8,22 +9,28 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
+import 'package:provider/provider.dart';
 
 class App extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return ChangeNotifierProvider(
+      create: (context) => ThemeChangerBloc(),
+      child: _InternalApp(),
+    );
+  }
+}
+
+class _InternalApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(statusBarColor: Colors.white),
     );
+    final ThemeChangerBloc theme = Provider.of<ThemeChangerBloc>(context);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primaryColor: Colors.white,
-        accentColor: Colors.lightBlue,
-        appBarTheme: AppBarTheme(
-          elevation: 0.0,
-        ),
-      ),
+      theme: theme.getTheme(),
       routes: _buildRoutes(context),
     );
   }

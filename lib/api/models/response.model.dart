@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:diskurs/api/models/result.model.dart';
 
 class ResponseModel {
