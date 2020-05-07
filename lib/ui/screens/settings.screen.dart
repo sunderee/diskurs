@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SettingsScreen extends StatefulWidget {
   static const String routeName = '/info/more/settings';
@@ -81,13 +82,25 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ListTile(
               title: Text(_settings.bugReport.first),
               subtitle: Text(_settings.bugReport.second),
-              onTap: () {},
+              onTap: () async {
+                const String emailURL =
+                    'mailto:peter.aleksander.bizjak@ipm-digital.si?subject=Bug report';
+                if (await canLaunch(emailURL)) {
+                  await launch(emailURL);
+                }
+              },
             ),
             Divider(),
             ListTile(
               title: Text(_settings.feedback.first),
               subtitle: Text(_settings.feedback.second),
-              onTap: () {},
+              onTap: () async {
+                const String emailURL =
+                    'mailto:peter.aleksander.bizjak@ipm-digital.si,kontekst.io.info@gmail.com';
+                if (await canLaunch(emailURL)) {
+                  await launch(emailURL);
+                }
+              },
             ),
           ],
         ),
