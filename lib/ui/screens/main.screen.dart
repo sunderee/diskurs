@@ -1,4 +1,5 @@
 import 'package:diskurs/api/blocs/kontekst.bloc.dart';
+import 'package:diskurs/api/blocs/theme_changer.block.dart';
 import 'package:diskurs/api/constants/language.const.dart';
 import 'package:diskurs/ui/screens/corpus_lookup.screen.dart';
 import 'package:diskurs/ui/screens/info.screen.dart';
@@ -8,6 +9,7 @@ import 'package:diskurs/utils/constants/preferences.const.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class MainScreen extends StatefulWidget {
@@ -21,17 +23,10 @@ class _MainScreenState extends State<MainScreen> {
   String _query = '';
   Stream _stream = bloc.responseModelStream;
 
-  bool _isDarkThemeSelected = false;
-
   @override
   Widget build(BuildContext context) {
-    if (!_isDarkThemeSelected) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarColor: Colors.white,
-        ),
-      );
-    }
+    final ThemeChangerBloc theme = Provider.of<ThemeChangerBloc>(context);
+    _readSharedPreferencesForTheme(theme);
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -245,9 +240,14 @@ class _MainScreenState extends State<MainScreen> {
     );
   }
 
-  Future<void> _readSharedPreferencesFile() async {
+  Future<void> _readSharedPreferencesForTheme(ThemeChangerBloc theme) async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     bool themePref = sharedPreferences.getBool(THEME_DATA_PREFERENCE) ?? false;
-    setState(() => _isDarkThemeSelected = themePref);
+    SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle(
+        statusBarColor: themePref ? Colors.grey[800] : Colors.white,
+      ),
+    );
+    theme.setTheme(themePref);
   }
 }
