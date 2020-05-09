@@ -19,7 +19,7 @@ class InfoScreen extends StatelessWidget {
       'Pristupite informacijama o aplikaciji, podešavanjima i kontaktnim podacima na srpskom',
     ),
     _ListTileContents(
-      'EN | Engleski',
+      'EN | English',
       'Access app info, settings and contact information in English',
     ),
   ];
