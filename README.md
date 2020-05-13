@@ -26,10 +26,6 @@ Although Balkan countries, respectively, have made some solid progress in the di
 
 Through doing so, we are looking at possibly the first united thesaurus for the three major languages in the Balkan area: Slovenian, Croatian and Serbian. Coupled with examples of word usages, the application provides a ubiquitous medium for students and experts alike who are looking at related phrases either to enrich their writing or to deduce the meaning of a word through checking the similar phrases (which is how sites like Wiktionary usually work).
 
-## Usage
-
-The application, right now, is in the earliest stages of development. This section will get populated once I'm satisfied with the version 0.0.1 and before we move on to 0.0.2 (and public beta, of course).
-
 ## License
 
 The application is closed-source, but this will change in the future. The reason why I am licensing it under a proprietary license is to protect the intellectual property until it's suitable for release to the public.
