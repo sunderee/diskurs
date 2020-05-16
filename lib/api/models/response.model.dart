@@ -15,7 +15,6 @@ class ResponseModel {
   }
 
   ResponseModel.fromJson(Map<String, dynamic> json) {
-    print('Decoding first layer of the response...');
     _statusCode = json['status'];
     _result = ResultModel.fromJson(json['result']);
   }

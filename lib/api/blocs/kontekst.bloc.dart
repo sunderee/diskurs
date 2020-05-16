@@ -18,15 +18,12 @@ class KontekstBloc {
   Future<void> constructQuery(String language, String queriedTerm) async {
     switch (language) {
       case LanguageConst.LANGUAGE_SLOVENIAN:
-        print('BLOC got request for Slovenian language...');
         _publishSubject.sink.add(await _provider.requestSlo(queriedTerm));
         break;
       case LanguageConst.LANGUAGE_CROATIAN:
-        print('BLOC got request for Croatian language...');
         _publishSubject.sink.add(await _provider.requestCro(queriedTerm));
         break;
       case LanguageConst.LANGUAGE_SERBIAN:
-        print('BLOC got request for Serbian language...');
         _publishSubject.sink.add(await _provider.requestSrb(queriedTerm));
         break;
       default:
@@ -37,19 +34,16 @@ class KontekstBloc {
   Future<void> constructCorpusQuery(String language, String queriedTerm) async {
     switch (language) {
       case LanguageConst.LANGUAGE_SLOVENIAN:
-        print('BLOC got request for corpus lookup in Slovenian language...');
         _publishSubjectCorpus.sink.add(
           await _provider.requestCorpusSlo(queriedTerm),
         );
         break;
       case LanguageConst.LANGUAGE_CROATIAN:
-        print('BLOC got request for corpus lookup in Croatian language...');
         _publishSubjectCorpus.sink.add(
           await _provider.requestCorpusCro(queriedTerm),
         );
         break;
       case LanguageConst.LANGUAGE_SERBIAN:
-        print('BLOC got request for corpus lookup in Serbian language...');
         _publishSubjectCorpus.sink.add(
           await _provider.requestCorpusSrb(queriedTerm),
         );
@@ -59,7 +53,6 @@ class KontekstBloc {
   }
 
   void dispose() {
-    print('Disposing stream');
     _publishSubject.close();
     _publishSubjectCorpus.close();
   }
