@@ -26,6 +26,8 @@ flutter:
   assets:
     - config.dev.json
     - app_icon.png
+    - loading.png
+    - speaking.png
 
 flutter_icons:
   android: "launcher_icon"

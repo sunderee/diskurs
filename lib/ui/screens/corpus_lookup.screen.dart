@@ -25,15 +25,10 @@ class _CorpusLookupScreenState extends State<CorpusLookupScreen> {
         stream: _stream,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            print(
-              'Stream seems to be alright, let\'s build the ListView...',
-            );
             return _buildCorpusQueryList(snapshot);
           } else if (snapshot.hasError) {
-            print('Error in a stream!');
             return Text(snapshot.error.toString());
           } else {
-            print('BLOC stream is still empty...');
             return Center(
               child: CircularProgressIndicator(),
             );
@@ -82,7 +77,6 @@ class _CorpusLookupScreenState extends State<CorpusLookupScreen> {
   }
 
   ListView _buildCorpusQueryList(AsyncSnapshot<dynamic> snapshot) {
-    print('Building the ListView with snapshot ${snapshot.data}');
     return ListView.builder(
       itemCount: snapshot.data.corpusLookupResults.length,
       itemBuilder: (context, index) => ListTile(
