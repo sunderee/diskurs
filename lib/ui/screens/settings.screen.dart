@@ -70,7 +70,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   SystemChrome.setSystemUIOverlayStyle(
                     SystemUiOverlayStyle(
                         statusBarColor: _isDarkThemeSelected
-                            ? Colors.grey[800]
+                            ? Colors.grey[850]
                             : Colors.white),
                   );
                 });

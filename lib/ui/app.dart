@@ -7,7 +7,6 @@ import 'package:diskurs/ui/screens/more_info.screen.dart';
 import 'package:diskurs/ui/screens/settings.screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 

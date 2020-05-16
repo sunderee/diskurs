@@ -13,7 +13,7 @@ class ThemeChangerBloc with ChangeNotifier {
 
   final _darkTheme = ThemeData(
     brightness: Brightness.dark,
-    primaryColor: Colors.grey[800],
+    primaryColor: Colors.grey[850],
     accentColor: Colors.lightBlue,
     appBarTheme: AppBarTheme(
       elevation: 0.0,

@@ -245,7 +245,7 @@ class _MainScreenState extends State<MainScreen> {
     bool themePref = sharedPreferences.getBool(THEME_DATA_PREFERENCE) ?? false;
     SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(
-        statusBarColor: themePref ? Colors.grey[800] : Colors.white,
+        statusBarColor: themePref ? Colors.grey[850] : Colors.white,
       ),
     );
     theme.setTheme(themePref);
