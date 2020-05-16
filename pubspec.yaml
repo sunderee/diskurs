@@ -3,7 +3,7 @@ description: Dictionary and thesaurus for major languages in the Balkan area.
 
 publish_to: "none"
 
-version: 0.0.3+3
+version: 0.0.4+1
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
