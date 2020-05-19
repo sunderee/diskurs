@@ -80,10 +80,9 @@ class _CorpusLookupScreenState extends State<CorpusLookupScreen> {
     return ListView.builder(
       itemCount: snapshot.data.corpusLookupResults.length,
       itemBuilder: (context, index) => ListTile(
-        leading: Image(
-          width: 24.0,
-          height: 24.0,
-          image: AssetImage('speaking.png'),
+        leading: Icon(
+          Icons.format_quote,
+          color: Colors.lightBlue,
         ),
         title: Text(snapshot.data.corpusLookupResults[index]),
       ),

@@ -211,10 +211,14 @@ class _MainScreenState extends State<MainScreen> {
                   return Center(
                     child: Padding(
                       padding: const EdgeInsets.only(
-                        top: 32.0,
+                        top: 40.0,
                       ),
-                      child: Image(
-                        image: AssetImage('loading.png'),
+                      child: Container(
+                        width: MediaQuery.of(context).size.width / 2.1,
+                        child: Image(
+                          image: AssetImage('loading.png'),
+                          fit: BoxFit.contain,
+                        ),
                       ),
                     ),
                   );
