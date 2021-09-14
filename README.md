@@ -28,4 +28,4 @@ Through doing so, we are looking at possibly the first united thesaurus for the 
 
 ## License
 
-The application is closed-source, but this will change in the future. The reason why I am licensing it under a proprietary license is to protect the intellectual property until it's suitable for release to the public.
+Open-sourced under MIT license
